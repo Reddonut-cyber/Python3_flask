@@ -33,5 +33,35 @@ def plot():
             y_values = x_values
             
         #Plot the funcion
+        plt.figure()
+        plt.plot(x_values, y_values, color=color)
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.title(f'Plot {function} function')
+        plt.savefig(image_name)
+        plt.close()
         
+        return render_template('plot.html', image_name=image_name)
+    return render_template('plot_form.html')
+
+@app.route("/histogram", methods=["GET", "POST"])
+def histogram():
+    if request.method == "POST":
+        # Get user inputs
+        data = request.form.get("data")
+        data_list = [float(x) for x in data.split(",")]
+
+        # Plot the histogram
+        plt.figure()
+        plt.hist(data_list, bins=10, color="skyblue", edgecolor="black")
+        plt.xlabel("Value")
+        plt.ylabel("Frequency")
+        plt.title("Histogram of User Data")
+        plt.savefig(image_name)
+        plt.close()
         
+        return render_template("histogram.html", image_name=image_name)
+    return render_template("histogram_form.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)

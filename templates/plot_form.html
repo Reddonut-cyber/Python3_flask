@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plot a Function</title>
+</head>
+<body>
+    <h1>Plot a Function</h1>
+    <form method="POST" action="/plot">
+        <label for="x_from">X From:</label>
+        <input type="number" name="x_from" step="0.1" required><br><br>
+        
+        <label for="x_to">X To:</label>
+        <input type="number" name="x_to" step="0.1" required><br><br>
+        
+        <label for="function">Select Function:</label>
+        <select name="function" required>
+            <option value="sin">sin(x)</option>
+            <option value="cos">cos(x)</option>
+            <option value="x^2">x^2</option>
+            <option value="sqrt(x)">sqrt(x)</option>
+        </select><br><br>
+        
+        <label for="color">Select Color:</label>
+        <select name="color" required>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="purple">Purple</option>
+        </select><br><br>
+        
+        <button type="submit">Plot</button>
+    </form>
+</body>
+</html>
